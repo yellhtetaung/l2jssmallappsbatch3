@@ -31,6 +31,20 @@ getmap.addEventListener("click", function (e) {
     circle.style.left = `${currx}px`;
     circle.style.top = `${curry}px`;
 
+    // console.log(getsmallcolor.value);
+
+    console.log(getsmallcolor.selectedIndex);
+
+    if (
+      getsmallcolor.selectedIndex > 0 &&
+      getmediumcolor.selectedIndex > 0 &&
+      getlargecolor.selectedIndex > 0
+    ) {
+      circle.style.setProperty("--small-color", getsmallcolor.value);
+      circle.style.setProperty("--medium-color", getmediumcolor.value);
+      circle.style.setProperty("--large-color", getlargecolor.value);
+    }
+
     // e.target.appendChild(circle);
     this.appendChild(circle);
   }
@@ -42,7 +56,7 @@ function removepointer(e) {
   // console.log(e.target);
   // console.log(e.target.id);
 
-  if (e.target.id > 0) {
+  if (e.target.id === 0) {
     e.target.remove();
   }
 }
